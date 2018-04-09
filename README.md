@@ -10,7 +10,7 @@ Middy middleware for connecting to redis. [Complete documentation](https://angli
 Installing `middy-redis`
 
 ```bash
-npm install --save middy, redis # You need middy and redis installed
+npm install --save middy redis # You need middy and redis installed
 npm install --save middy-redis
 ```
 

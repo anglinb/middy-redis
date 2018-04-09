@@ -9,6 +9,7 @@
     "test:no_lint": "jest",
     "test": "jest && standard",
     "doc": "jsdoc -c .jsdoc.json",
+    "doc:rebuild": "rm -rf docs/ && npm run doc && mv docs/middy-redis/0.0.0-development/* docs/",
     "travis-deploy-once": "travis-deploy-once",
     "semantic-release": "semantic-release"
   },
