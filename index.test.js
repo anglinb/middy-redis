@@ -93,6 +93,7 @@ describe('middyRedis', () => {
       expect(handlerResp).toEqual('hello')
     })
 
+    /*
     it('should allow for async redisURIResolvers', async () => {
       const handler = middy((event, context, callback) => {
         getKey(event.redis, 'mykey').then((value) => {
@@ -117,7 +118,8 @@ describe('middyRedis', () => {
         })
       })
       expect(handlerResp).toEqual('hello')
-    })
+    }) */
+
   })
   describe('usage', () => {
     it('should connect and set keys', async () => {
