@@ -33,9 +33,10 @@ const getKey = async (redis, key) => {
 }
 
 describe('middyRedis', () => {
-  beforeEach(() => {
+  beforeEach(async () => {
     const redisInstance = redisClient.createClient('redis://localhost:6379')
-    return flushAll(redisInstance)
+    await flushAll(redisInstance)
+    redisInstance.quit()
   })
 
   describe('configuration', () => {
@@ -59,6 +60,7 @@ describe('middyRedis', () => {
 
       let dbFiveRedis = redisClient.createClient('redis://localhost:6379/5')
       await setKey(dbFiveRedis, 'mykey', 'hello')
+      dbFiveRedis.quit()
       let handlerResp = await new Promise((resolve, reject) => {
         handler({}, null, (err, resp) => {
           debug('callback: %o %o', err, resp)
@@ -80,6 +82,7 @@ describe('middyRedis', () => {
 
       let dbFiveRedis = redisClient.createClient('redis://localhost:6379/4')
       await setKey(dbFiveRedis, 'mykey', 'hello')
+      dbFiveRedis.quit()
       let handlerResp = await new Promise((resolve, reject) => {
         handler({}, null, (err, resp) => {
           debug('callback: %o %o', err, resp)
@@ -104,6 +107,7 @@ describe('middyRedis', () => {
 
       let dbFiveRedis = redisClient.createClient('redis://localhost:6379/5')
       await setKey(dbFiveRedis, 'mykey', 'hello')
+      dbFiveRedis.quit()
 
       let handlerResp = await new Promise((resolve, reject) => {
         handler({}, null, (err, resp) => {
@@ -135,6 +139,7 @@ describe('middyRedis', () => {
 
       let dbTwoRedis = redisClient.createClient('redis://localhost:6379/2')
       await setKey(dbTwoRedis, 'mykey', 'hello')
+      dbTwoRedis.quit()
 
       handlerResp = await new Promise((resolve, reject) => {
         handler({}, null, (err, resp) => {
