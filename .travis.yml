@@ -4,6 +4,9 @@ cache:
   - "~/.npm"
 notifications:
   email: false
+script:
+  - npm run test
+  - npm run build
 services:
 - redis-server
 node_js:
