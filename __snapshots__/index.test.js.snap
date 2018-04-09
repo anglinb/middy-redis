@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`middyRedis configuration should require the redisURI or redisURIResolver 1`] = `"middy-redis configuration error: Please provide a redisURI or redisURIResolver"`;

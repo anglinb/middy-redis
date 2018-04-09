@@ -1,0 +1,9 @@
+{
+  "opts": {
+    "template": "node_modules/minami",
+    "destination": "./docs"
+  },
+  "source": {
+    "include": ["README.md", "package.json", "index.js"]
+  }
+}

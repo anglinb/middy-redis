@@ -4,7 +4,11 @@
   "description": "Middy middleware that loads redis for you and closes your connection when you're done",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "lint": "standard",
+    "lint:fix": "standard --fix",
+    "test:no_lint": "jest",
+    "test": "npm run lint && jest",
+    "doc": "jsdoc -c .jsdoc.json",
     "travis-deploy-once": "travis-deploy-once",
     "semantic-release": "semantic-release"
   },
@@ -14,16 +18,31 @@
     "redis"
   ],
   "peerDependencies": {
-    "middy": "0.x"
+    "middy": "0.x",
+    "redis": "2.x"
   },
   "author": "Brian Anglin <banglin@usc.edu>",
   "license": "MIT",
   "devDependencies": {
-    "travis-deploy-once": "^4.4.1",
-    "semantic-release": "^15.1.5"
+    "jest": "^22.4.3",
+    "jsdoc": "^3.5.5",
+    "middy": "^0.10.8",
+    "minami": "^1.2.3",
+    "redis": "^2.8.0",
+    "semantic-release": "^15.1.5",
+    "standard": "^11.0.1",
+    "travis-deploy-once": "^4.4.1"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ]
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/anglinb/middy-redis.git"
+  },
+  "dependencies": {
+    "debug": "^3.1.0"
   }
 }
