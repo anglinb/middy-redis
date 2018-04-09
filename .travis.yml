@@ -1,15 +1,18 @@
 language: node_js
 cache:
   directories:
-    - ~/.npm
+  - "~/.npm"
 notifications:
   email: false
 services:
-  - redis-server
+- redis-server
 node_js:
-  - '8'
+- '8'
 after_success:
-  - npm run travis-deploy-once "npm run semantic-release"
+- npm run travis-deploy-once "npm run semantic-release"
 branches:
   except:
-    - /^v\d+\.\d+\.\d+$/
+  - "/^v\\d+\\.\\d+\\.\\d+$/"
+env:
+  matrix:
+    secure: AKkZUAsYEJY79sJOOMg8jt/PxCMyQKUaLYUV97xlCzgGm7HtVrvIAnk/nhg4NKQuAhkMlSiN/1fECj3Ie4zrPjnW6cmrEpMfnWtp6sCrGpOtrM4+Fhzr/8Jh3UFsBKZChZxgNVW1pSQCGBo5tvGrTytRQqxw+zWghBtUiqKK6VCqsnlPM+n3WtwgK9/MO71s0cyGfwMEppPEcRF4XX5ZX2+C4ga9fEbfFz8teXSv70NhNl/CZ/TgjatKvU3TRrcTQXZ0hSc8AYw6N8oialacCDyIA1jp+0FUzS7EMPXS2QyOOpO1gDCS2LApdTTv0YAxcmaDuHqzphgI4SQq22o9ieJNktDwm/DUlSUZ1F9zOzBWekMDtbi2Wy4nVIiB+U858FkYnQMFP+8DbZSoiP5Rl+XP3zrLS3ZcHrCC+ESuRtpPUAb3AietmSlurj/tccjqdOdjlxCseP7mWCFK3/ZJ06jPw679Kuve733WhtmxuB+fEqw16XH899pxgyhJ4D4oKijwLkdBJyU7sRJMoypkEsRwiRECdMndfjwjyYzGQYo4RHlUzUhSJ0LKNeVJagkaV9zKVLyYM93rf2z5dyzIno0FTEGqHa+aSPfUegupZHG58hRzGl43lSL93vRaZPPmBsQRrvk0cCPSm0/aIeHCnih8BMtznvB3cPjQvbhXT+Q=
