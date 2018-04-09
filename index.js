@@ -55,18 +55,18 @@ module.exports = ({ redisURI = undefined, redisURIResolver = undefined } = {}) =
    * @param {Object} handler - Current handler
    * @modifies {handler}
    */
-  const before = async (handler) => {
-    let resolvedRedisURI = redisURIResolver ? (await redisURIResolver(handler.event)) : redisURI
+  const before = (handler, next) => {
+    let resolvedRedisURI = redisURIResolver ? (redisURIResolver(handler.event)) : redisURI
     debug('resolved redis URI', resolvedRedisURI)
     const redis = redisClient.createClient(resolvedRedisURI)
-    await new Promise((resolve, reject) => {
+    handler.event.redis = redis
+    new Promise((resolve, reject) => {
       debug('waiting for redis to be ready')
       redis.on('ready', () => {
         debug('redis ready')
         resolve()
       })
-    })
-    handler.event.redis = redis
+    }).then(next)
   }
 
   /**
@@ -75,14 +75,12 @@ module.exports = ({ redisURI = undefined, redisURIResolver = undefined } = {}) =
    * @param {Object} handler - Current handler
    * @modifies {handler}
    */
-  const after = async (handler) => {
-    return new Promise((resolve, reject) => {
-      debug('attempting to quit redis')
-      handler.event.redis.quit(() => {
-        debug('redis quit successful')
-        handler.event.redis = undefined
-        resolve()
-      })
+  const after = (handler, next) => {
+    debug('attempting to quit redis')
+    handler.event.redis.quit(() => {
+      debug('redis quit successful')
+      handler.event.redis = undefined
+      next()
     })
   }
 

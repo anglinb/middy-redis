@@ -7,7 +7,7 @@
     "lint": "standard",
     "lint:fix": "standard --fix",
     "test:no_lint": "jest",
-    "test": "jest && standard",
+    "test": "jest && standard index.js",
     "prebuild": "rm -rf dist",
     "build": "babel --out-dir dist index.js",
     "doc": "jsdoc -c .jsdoc.json",
