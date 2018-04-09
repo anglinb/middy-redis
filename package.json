@@ -7,7 +7,7 @@
     "lint": "standard",
     "lint:fix": "standard --fix",
     "test:no_lint": "jest",
-    "test": "npm run lint && jest",
+    "test": "jest && standard",
     "doc": "jsdoc -c .jsdoc.json",
     "travis-deploy-once": "travis-deploy-once",
     "semantic-release": "semantic-release"
