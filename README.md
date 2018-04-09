@@ -3,7 +3,7 @@ middy-redis
 
 [![travis build](https://travis-ci.org/anglinb/middy-redis.svg?branch=master)](https://travis-ci.org/anglinb/middy-redis)
 
-Middy middleware for connecting to redis
+Middy middleware for connecting to redis. [Complete documentation](https://anglinb.github.io/middy-redis/index.html
 
 ## Getting Started
 
