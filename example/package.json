@@ -1,0 +1,19 @@
+{
+  "name": "middy-redis-example",
+  "version": "1.0.0",
+  "description": "Example of using middy-redis with serverless",
+  "main": "handler.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Brian Anglin <banglin@usc.edu>",
+  "license": "MIT",
+  "dependencies": {
+    "middy": "^0.10.8",
+    "middy-redis": "^1.0.0",
+    "redis": "^2.8.0"
+  },
+  "devDependencies": {
+    "serverless-webpack": "^5.1.1"
+  }
+}
